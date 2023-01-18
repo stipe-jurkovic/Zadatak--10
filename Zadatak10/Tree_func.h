@@ -15,3 +15,5 @@ TreeP newTreeNode(TreeP P, char* cityName, int val);
 TreeP insertTreeNode(TreeP P, TreeP Q);
 int printNode(TreeP P);
 int printTreeinorder(TreeP P);
+int printTreeinorderAboveVal(TreeP P, int val);
+TreeP deleteTree(TreeP P);

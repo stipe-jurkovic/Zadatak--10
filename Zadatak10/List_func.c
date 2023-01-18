@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <wchar.h>
+#include <locale.h>
 #include "List_func.h"
 #include "Defined_sizes.h"
 #include "Tree_func.h"
@@ -12,9 +14,6 @@ int InitListNode(NodeP node) {
 	node->treehead = NULL;
 	return EXIT_SUCCESS;
 }
-
-
-
 NodeP newListElement(NodeP list, char countryName[MAX_COUNTRY_NAME_LEN]) {
 
 	NodeP Q = NULL;
@@ -42,18 +41,61 @@ int insertSorted(NodeP list, NodeP Q) {
 	}
 	return EXIT_SUCCESS;
 }
-
 int printList(NodeP list) {
 	NodeP temp;
 	temp = list->next;
+	setlocale(LC_CTYPE, "");
 	if (!temp){
 		printf("List is empty!\n"); 
 		return EXIT_FAILURE;
 	}
 	while (temp!=NULL) {
-		printf("Drzava: %s \n", temp->CountryName);
+		printf("Država: %s \n", temp->CountryName);
 		printTreeinorder(temp->treehead);
+		printf("\n");
 		temp = temp->next;
 	}
+	return EXIT_SUCCESS;
+}
+NodeP findElByNodeName(NodeP list, char* name) {
+	NodeP temp = list;
+
+	while (temp != NULL) {
+		if (strcmp(temp->CountryName, name) == 0)
+			return temp;
+		temp = temp->next;
+	}
+	return temp;
+}
+int deleteList(NodeP list) {
+	int i = 0;
+
+	if (!list) {
+		printf("List is already empty, nothing to delete!");
+		return EXIT_FAILURE;
+	}
+	while (list->next != NULL) {
+		DelNextEl(list);
+		i++;
+	}
+	if (i == 1) {
+		printf("Deleted list! Deleted %i entry.\n", i);
+	}else {
+		printf("Deleted list! Deleted %i entries.\n", i);
+	}
+	return EXIT_SUCCESS;
+}
+int DelNextEl(NodeP list) {
+	NodeP temp = NULL;
+
+	if (list->next == NULL) {
+		printf("\nElement was not found!\n");
+		return EXIT_FAILURE;
+	}
+	temp = list->next;
+	list->next = temp->next;
+	temp->treehead = deleteTree(temp->treehead);
+	free(temp);
+
 	return EXIT_SUCCESS;
 }

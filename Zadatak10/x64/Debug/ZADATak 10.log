@@ -1,2 +1,8 @@
-﻿  Tree_func.c
+﻿  Funkcije.c
+C:\Users\Stipe\Desktop\ZADATAK 10\ZADATak 10\Funkcije.c(27,65): warning C4047: 'function': 'char *' differs in levels of indirection from 'char (*)[128]'
+C:\Users\Stipe\Desktop\ZADATAK 10\ZADATak 10\Funkcije.c(27,49): warning C4024: 'importFileCities': different types for formal and actual parameter 2
+C:\Users\Stipe\Desktop\ZADATAK 10\ZADATak 10\Funkcije.c(61,29): warning C4047: 'function': 'char *' differs in levels of indirection from 'char (*)[128]'
+C:\Users\Stipe\Desktop\ZADATAK 10\ZADATak 10\Funkcije.c(61,17): warning C4024: 'getInputString': different types for formal and actual parameter 1
+  Tree_func.c
+  Generating Code...
   ZADATak 10.vcxproj -> C:\Users\Stipe\Desktop\ZADATAK 10\ZADATak 10\x64\Debug\ZADATak 10.exe

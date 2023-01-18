@@ -1,8 +1,10 @@
-﻿Bakar, 7773
+﻿
 Opuzen, 2838
-Grubišno Polje, 5367
+Grubisno Polje, 5367
 Cres, 2716
 Imotski, 9153
-Metković, 15235
-Ploče, 8220
+Metkovic, 15235
+Ploce, 8220
 Split, 160577
+Izmisljen grad, 1 
+Bakar, 7773

@@ -2,4 +2,3 @@ francuska,    fran.txt
 švicarska,   svic.txt
 kostarika,  kost.txt
 srbija, srb.txt
-italija, it.txt

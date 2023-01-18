@@ -1,5 +1,4 @@
-hrvatska, hrv.txt
-kanada, cad.txt
-
-
-
+Hrvatska, hrv.txt
+Kanada,             cad.txt
+Italija, it.txt
+Bosna I Hercegovina, bih.txt

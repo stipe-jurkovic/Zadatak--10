@@ -1,0 +1,6 @@
+Prato, 200762
+Rome, 2761632
+Genoa, 560688
+Milan, 1371498
+Catania, 298324
+Naples, 914758	

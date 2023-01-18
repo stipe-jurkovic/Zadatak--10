@@ -47,5 +47,7 @@
     <Text Include="hrv.txt" />
     <Text Include="cad.txt" />
     <Text Include="temp.txt" />
+    <Text Include="it.txt" />
+    <Text Include="bih.txt" />
   </ItemGroup>
 </Project>

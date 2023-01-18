@@ -22,7 +22,9 @@
     <ClCompile Include="Funkcije.c" />
     <ClCompile Include="List_func.c" />
     <ClCompile Include="Tree_func.c" />
-    <ClCompile Include="Zadatak10.c" />
+    <ClCompile Include="Zadatak10.c">
+      <UseUnicodeForAssemblerListing Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</UseUnicodeForAssemblerListing>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Defined_sizes.h" />
@@ -31,9 +33,11 @@
     <ClInclude Include="Tree_func.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="bih.txt" />
     <Text Include="cad.txt" />
     <Text Include="drzave.txt" />
     <Text Include="hrv.txt" />
+    <Text Include="it.txt" />
     <Text Include="temp.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -61,7 +65,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>

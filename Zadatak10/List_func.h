@@ -16,3 +16,6 @@ int InitListNode(NodeP node);
 NodeP newListElement(NodeP list, char countryName[MAX_COUNTRY_NAME_LEN]);
 int insertSorted(NodeP list, NodeP Q);
 int printList(NodeP list);
+NodeP findElByNodeName(NodeP list, char* name);
+int deleteList(NodeP list);
+int DelNextEl(NodeP list);

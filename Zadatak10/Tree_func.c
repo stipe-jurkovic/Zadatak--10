@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <wchar.h>
+#include <locale.h>
 #include "Funkcije.h"
 #include "Defined_sizes.h"
 #include "List_func.h"
@@ -62,7 +64,11 @@ TreeP insertTreeNode(TreeP P, TreeP Q) {
 }
 int printNode(TreeP P)
 {
-	printf("%s: %i\n", P->cityName, P->popCount);
+	char a = ' ';
+	setlocale(LC_CTYPE, "");
+	if (P->popCount != 1)
+		a = 'a';
+	printf("%s: %i stanovnik%c\n", P->cityName, P->popCount, a);
 	return EXIT_SUCCESS;
 }
 int printTreeinorder(TreeP P) {
@@ -71,4 +77,32 @@ int printTreeinorder(TreeP P) {
 	printNode(P);
 	printTreeinorder(P->right);
 	return EXIT_SUCCESS;
+}
+int printTreeinorderAboveVal(TreeP P, int val) {
+	if (P == NULL) return EXIT_SUCCESS;
+
+	if(P->left && P->left->popCount > val){
+		printTreeinorderAboveVal(P->left, val);
+	}
+	if (P->popCount > val) {
+		printNode(P);
+	}
+	if (P->right && P->right->popCount > val) {
+		printTreeinorderAboveVal(P->right, val);
+	}
+	
+	return EXIT_SUCCESS;
+}
+TreeP deleteTree(TreeP P) {
+	if (P == NULL) {
+		return NULL;
+	}
+	if (P->right) {
+		P->right = deleteTree(P->right);
+	}
+	if (P->left) {
+		P->left = deleteTree(P->left);
+	}
+	free(P);
+	return NULL;
 }
