@@ -1,55 +1,19 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "Funkcije.h"
-
-#define MAX_LINE_LEN 128
-#define MAX_NUMBER_INT 10
-#define MAX_STRING_LEN 128
-
-
-InitTreeNode(TreeP treeNode){
-	memset(treeNode->cityName, 0, MAX_COUNTRY_NAME_LEN);
-	treeNode->popCount = 0;
-	treeNode->left = NULL;
-	treeNode->right = NULL;
-}
-InitListNode(NodeP node) {
-	memset(node->CountryName, 0, MAX_COUNTRY_NAME_LEN);
-	node->next = NULL;
-	node->tree
-}
+#include "List_func.h"
+#include "Tree_func.h"
+#include "Defined_sizes.h"
 
 
-
-int readFileCountries(char* filename) {
+int importFileCountries(NodeP list, char* filename) {
 	FILE* fp = NULL;
 	char buffer[MAX_LINE_LEN]= "\0";
 	char CountryName[MAX_LINE_LEN] = "\0";
 	char countryFilename[MAX_LINE_LEN] = "\0";
-
-
-
-	fp = fopen(filename, "r");
-	if (fp == NULL) {
-		return EXIT_FAILURE;
-	}
-	fgets(buffer, MAX_LINE_LEN, fp);
-	if (sscanf(buffer, " %s %s", CountryName, countryFilename) != 2){
-		return EXIT_FAILURE;
-	}
-
-
-
-}
-
-int readFileCities(char* filename)) {
-	FILE* fp = NULL;
-	char buffer[MAX_LINE_LEN] = "\0";
-	char TownName[MAX_LINE_LEN] = "\0";
-	int townPop = 0;
-
-
+	NodeP currentListNode = NULL;
 
 	fp = fopen(filename, "r");
 	if (fp == NULL) {
@@ -57,12 +21,36 @@ int readFileCities(char* filename)) {
 	}
 	while (!feof(fp)) {
 		fgets(buffer, MAX_LINE_LEN, fp);
-		if (sscanf(buffer, " %s %i", TownName, townPop) != 2) {
-			return EXIT_FAILURE;
+		if (sscanf(buffer, " %[^,], %[^\n] ", CountryName, countryFilename) == 2){         
+		currentListNode = newListElement(list, CountryName);
+		importFileCities(&currentListNode->treehead, &CountryName, &countryFilename);
 		}
-			
 	}
-	
+	return EXIT_SUCCESS;
+}
+
+int importFileCities(TreeP *treehead, char* CountryName, char* filename) {
+	FILE* fp = NULL;
+	char buffer[MAX_LINE_LEN] = "\0";
+	char TownName[MAX_LINE_LEN] = "\0";
+	char townPopchar[MAX_LINE_LEN] = "\0";
+	int townPopint = 0;
+
+	//treehead = malloc(sizeof(Tree));
+	//InitTreeNode(treehead);
+
+	fp = fopen(filename, "r");
+	if (fp == NULL) {
+		return EXIT_FAILURE;
+	}
+	while (!feof(fp)) {
+		fgets(buffer, MAX_LINE_LEN, fp);
+		if (sscanf(buffer, " %[^,], %[^\n] ", &TownName, &townPopchar) == 2) {
+			sscanf(townPopchar, "%i", &townPopint);
+			*treehead = newTreeNode(*treehead, TownName, townPopint);
+		}
+	}
+	return EXIT_SUCCESS;
 }
 
 int getInputInt(int* val)

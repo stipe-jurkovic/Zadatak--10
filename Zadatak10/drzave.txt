@@ -1,1 +1,5 @@
-#pragma once
+hrvatska, hrv.txt
+kanada, cad.txt
+
+
+

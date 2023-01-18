@@ -1,0 +1,67 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.33.31630.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///c:/users/stipe/desktop/zadatak 10/zadatak 10/tree_func.c"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "sha-256": "ee770b98847b43c8774cbbe42c5fbd4c15edfe1849c7546807c1d451e0b72027"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/stipe/desktop/zadatak 10/zadatak 10/funkcije.h"
+          },
+          "hashes": {
+            "sha-256": "41529450ae4338118bb4649213ace4a0e854588489391c26df9fdfa92be8e5f0"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/stipe/desktop/zadatak 10/zadatak 10/defined_sizes.h"
+          },
+          "hashes": {
+            "sha-256": "4064360ae9a3abd4bb9ec74b596d736a1ed8383f5d89c4ab26c2fd4f77631948"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/stipe/desktop/zadatak 10/zadatak 10/list_func.h"
+          },
+          "hashes": {
+            "sha-256": "86a8643cb4cd6c3aa0af75dd3d9afc4fa961cad01d85caa2cf26089fc511ef6c"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/stipe/desktop/zadatak 10/zadatak 10/tree_func.h"
+          },
+          "hashes": {
+            "sha-256": "1ca510dbe0200862fdd241a22bda6f5dd78066f23cf40f680e2e6009dbbb7097"
+          }
+        }
+      ]
+    }
+  ]
+}

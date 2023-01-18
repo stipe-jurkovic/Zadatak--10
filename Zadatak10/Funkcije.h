@@ -1,19 +1,9 @@
 #pragma once
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
+#include "List_func.h"
 
-#define MAX_COUNTRY_NAME_LEN 128
-
-typedef struct node* NodeP;
-typedef struct node {
-	char CountryName[MAX_COUNTRY_NAME_LEN];
-	TreeP treehead;
-	NodeP next;
-}Node;
-typedef struct tree* TreeP;
-typedef struct tree {
-	char cityName[MAX_COUNTRY_NAME_LEN];
-	int popCount;
-	TreeP left;
-	TreeP right;
-}Tree;
-
+int importFileCountries(NodeP list, char* filename);
+int importFileCities(TreeP treehead, char* filename);
+int getInputInt(int* val);
+int getInputString(char* string);
